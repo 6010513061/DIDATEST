@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+      <script src="{{url_for('static',filename='style_script.js')}}" charset="utf-8"></script>
+      <title>{% block title %}{% endblock %}</title>
+    </head>
+      <div class="nav-bar">
+        <div class="head-text">
+          <p>ระบบกรอกข้อมูล-ผู้เดินทางเข้าจังหวัดสงขลา</p>
+        </div>
+        <div class="language">
+          <a href="{{url_for('insert_data_th')}}">
+            <img src="{{url_for('static',filename='images/thailand.png')}}" alt=""></a>
+          <a href="{{url_for('insert_data_en')}}">
+            <img src="{{url_for('static',filename='images/eng.png')}}" alt=""></a>
+        </div>
+      </div>
+      <div class="tag-page">
+        <p id="1">1</p>
+        <p id="2">2</p>
+        <p id='3'>3</p>
+      </div>
+</html>
+{% block content %}{% endblock %}

@@ -1,0 +1,101 @@
+{% extends 'nav.html' %}
+{% block title %}ระบบกรอกข้อมูล-ผู้เดินทางเข้าสู่จังหวัดสงขลา{% endblock %}
+{% block content %}
+    <form class="" action="{{url_for('insert_arrival_to_db')}}" method="post" enctype="multipart/form-data">
+      <div class="input-group">
+        <label for="fname">fname</label>
+        <input type="text" name="fname">
+      </div>
+      <div class="input-group">
+        <label for="lname">lname</label>
+        <input type="text" name="lname">
+      </div>
+      <div class="input-group">
+        <label for="id">id</label>
+        <input type="text" name="id">
+      </div>
+      <div class="input-group">
+        <label for="file">file</label>
+        <input type="file" name="file">
+      </div>
+      <div class="input-group">
+        <label for="phonenumber">phone</label>
+        <input type="text" name="phonenumber">
+      </div>
+      <select class="" name="type">
+        <option value="" readonly>type</option>
+        {% for t in type %}
+        <option value="{{t[0]}}">{{t[1]}}</option>
+        {% endfor %}
+      </select>
+      <div class="input-group">
+        <select class="" name="number">
+          <option value="" readonly>flight number</option>
+          {% for t in flight %}
+          <option value="{{t[0]}}">{{t[1]}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="depart">
+        <div class="input-group">
+          <label for="depart_date">depart_date</label>
+          <input type="datetime-local" name="depart_date">
+        </div>
+        <select class="" name="depart_subdistrict">
+          <option value=" ">depart_subdistrict</option>
+          {% for t in sub %}
+          <option value="{{t[0]}}">{{t[1]}}</option>
+          {% endfor %}
+        </select>
+        <select class="" name="depart_district">
+          <option value=" ">depart_district</option>
+          {% for t in dis %}
+          <option value="{{t[0]}}">{{t[1]}}</option>
+          {% endfor %}
+        </select>
+        <select class="" name="depart_th_province">
+          <option value=" ">depart_th_province</option>
+          {% for t in pro %}
+          <option value="{{t[0]}}">{{t[1]}}</option>
+          {% endfor %}
+        </select>
+        <select class="" name="depart_country">
+          <option value=" " >depart_country</option>
+          {% for t in country %}
+          <option value="{{t[0]}}">{{t[2]}}</option>
+          {% endfor %}
+        </select>
+        <select class=" " name="depart_en_province">
+          <option value=" ">depart_nation</option>
+          {% for t in enpro %}
+          <option value="{{t[0]}}">{{t[1]}} {{t[3]}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="detination">
+        <div class="input-group">
+          <label for="dest_date">des_date</label>
+          <input type="datetime-local" name="des_date">
+        </div>
+        <select class="" name="des_subdistrict">
+          <option value=" ">des_subdistrict</option>
+          {% for t in sub %}
+          <option value="{{t[0]}}">{{t[1]}}</option>
+          {% endfor %}
+        </select>
+        <select class="" name="des_district">
+          <option value=" ">des_district</option>
+          {% for t in dis %}
+          <option value="{{t[0]}}">{{t[1]}}</option>
+          {% endfor %}
+        </select>
+        <select class="" name="des_th_province">
+          <option value=" ">des_th_province</option>
+          {% for t in pro %}
+          <option value="{{t[0]}}">{{t[1]}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <button type="submit" name="button">Save</button>
+    </form>
+{% endblock %}

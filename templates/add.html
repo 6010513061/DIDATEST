@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <title>Add+</title>
+  </head>
+  <body>
+    <form class="" action="{{url_for('add_trans')}}" method="post">
+      <div class="block">
+        <div class="head">
+          <p>ข้อมูลยานพาหนะ</p>
+        </div>
+        <div class="input-group">
+          <select class="" name="linename">
+            <option value="" readonly>ชื่อผุ้ให้บริการ</option>
+            {% for ln in line %}
+            <option value="{{ln[0]}}">{{ln[1]}}{{ln[2]}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="input-group">
+          <select class="" name="number">
+            <option value="" readonly>เลขที่</option>
+            {% for ln in num %}
+            <option value="{{ln[0]}}">{{ln[1]}}{{ln[2]}}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+      </div>
+      <div class="block">
+        <div class="head">
+          <p>ข้อมูลต้นทาง</p>
+        </div>
+        <div class="input-group">
+          <label for="ddate">กำหนดการ(ต้นทาง)</label>
+          <input type="datetime-local" name="ddate">
+        </div>
+          <div class="input-group">
+            <select class="" name="dth_province">
+              <option value="">จังหวัด</option>
+              {% for i in pro %}
+              <option value="{{i[0]}}">{{i[1]}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="input-group">
+            <select class="" name="ddistrict">
+              <option value="">อำเภอ</option>
+              {% for i in dis %}
+              <option value="{{i[0]}}">{{i[1]}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="input-group">
+            <select class="" name="dsubdistrict">
+              <option value="">ตำบล</option>
+              {% for i in sub %}
+              <option value="{{i[0]}}">{{i[1]}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="input-group">
+            <select class="" name="dcountry">
+              <option value="">ประเทศ</option>
+              {% for i in con %}
+              <option value="{{i[0]}}">{{i[2]}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="input-group">
+            <select class="" name="den_province">
+              <option value="">รัฐ(กรณีเดินทางจากค่างประเทศ)</option>
+              {% for i in en_pro %}
+              <option value="{{i[0]}}">{{i[0]}}{{i[1]}}-{{i[3]}}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="block">
+          <div class="head">
+            <p>ข้อมูลปลายทาง</p>
+          </div>
+          <select class="" name="dsprovince">
+            <option value="">จังหวัด</option>
+            {% for i in pro %}
+            <option value="{{i[0]}}">{{i[1]}}</option>
+            {% endfor %}
+          </select>
+          <select class="" name="dsdistrict">
+            <option value="">อำเภอ</option>
+            {% for i in dis %}
+            <option value="{{i[0]}}">{{i[1]}}</option>
+            {% endfor %}
+          </select>
+          <select class="" name="dssubdistrict">
+            <option value="">ตำบล</option>
+            {% for i in sub %}
+            <option value="{{i[0]}}">{{i[1]}}</option>
+            {% endfor %}
+          </select>
+          <div class="input-group">
+            <label for="dsdate">กำหนดการ(ปลายทาง)</label>
+            <input type="datetime-local" name="dsdate">
+          </div>
+        </div>
+      <button type="submit" name="button" class="btn-add">Add+</button>
+    </form>
+  </body>
+</html>
